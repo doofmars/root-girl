@@ -11,11 +11,23 @@ config_version=4
 [application]
 
 config/name="RootBoyAndLianaGirl"
+run/main_scene="res://scene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1600
+window/size/height=900
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[mono]
+
+project/assembly_name="RootBoyAndLianaGirl"
 
 [physics]
 
