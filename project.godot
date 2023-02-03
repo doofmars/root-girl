@@ -11,11 +11,16 @@ config_version=4
 [application]
 
 config/name="RootBoyAndLianaGirl"
+run/main_scene="res://scr/game.tscn"
 config/icon="res://icon.png"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[mono]
+
+project/assembly_name="RootBoyAndLianaGirl"
 
 [physics]
 
