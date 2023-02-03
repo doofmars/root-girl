@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="RootBoyAndLianaGirl"
-run/main_scene="res://scene.tscn"
+run/main_scene="res://scr/game.tscn"
 config/icon="res://icon.png"
 
 [display]
