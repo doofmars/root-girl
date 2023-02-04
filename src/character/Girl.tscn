@@ -54,7 +54,7 @@ script = ExtResource( 16 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "run"
-frame = 4
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,3 +62,5 @@ position = Vector2( 0, 21 )
 shape = SubResource( 2 )
 
 [node name="Liana" parent="." instance=ExtResource( 19 )]
+
+[connection signal="pull" from="Liana" to="." method="_on_Liana_pull"]

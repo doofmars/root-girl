@@ -45,3 +45,8 @@ func _physics_process(delta):
 			$AnimatedSprite.animation = "run"
 	else:
 		$AnimatedSprite.animation = "fall"
+
+
+func _on_Liana_pull(delta:float, liana_destination:Vector2):
+	var velo = (liana_destination - global_position).normalized() * 400
+	position += velo * delta
