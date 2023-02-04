@@ -46,10 +46,10 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.animation = "run"
 	else:
-		$AnimatedSprite.animation = "fall"
+		$AnimatedSprite.animation = "fall"	
 
-func _on_Liana_swing(delta:float, liana_target:Vector2, liana_length:float):
-	if (liana_target - global_position).length() > liana_length:
-		position += (liana_target - global_position).normalized() * delta * 800
-	if (liana_target - global_position).length() < liana_length:
-		position += (global_position - liana_target).normalized() * delta * 500
+func _on_RootSwing_swing(delta:float, root_target:Vector2, root_length:float):
+	if (root_target - global_position).length() > root_length:
+		position += (root_target - global_position).normalized() * delta * 800
+	if (root_target - global_position).length() < root_length:
+		position += (global_position - root_target).normalized() * delta * 500
