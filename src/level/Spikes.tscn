@@ -21,10 +21,9 @@ tile_data = PoolIntArray( -720891, 4, 0, -1, 5, 393216, -65536, 5, 393224, -6553
 [node name="EndFlag" parent="." instance=ExtResource( 3 )]
 position = Vector2( 298, 155 )
 
-[node name="Spikes" type="TileMap" parent="."]
+[node name="Spikes" type="TileMap" parent="." groups=["hazard"]]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
-collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 6, 9, 0, 7, 9, 0, 8, 9, 0, 196608, 8, 0, 262144, 8, 0, 262162, 10, 0, 327680, 8, 0, 327698, 10, 0, 393234, 10, 0, 589831, 7, 0, 589832, 7, 0, 589833, 7, 0, 589834, 7, 0, 589835, 7, 0 )
