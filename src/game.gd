@@ -2,9 +2,11 @@ extends Node
 
 signal show_menu
 signal game_time
+signal death_count
 
 var current_level
 var start_time_offset
+var deaths = 0
 
 const levels = [
 	"Plain", 
@@ -16,6 +18,8 @@ func _on_Menu_run_game():
 	if current_level == null:
 		start_level(levels[0])
 		start_time_offset = OS.get_ticks_msec()
+		deaths = 0
+		emit_signal("death_count", deaths)
 		get_node("GameTimer").start()
 		
 func _process(delta):
@@ -52,3 +56,7 @@ func _on_GameTimer_timeout():
 	while result.begins_with("00:"):
 		result = result.substr(3)
 	emit_signal("game_time", result)
+
+func increment_death_count():
+	deaths += 1
+	emit_signal("death_count", deaths)

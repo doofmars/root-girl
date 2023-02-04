@@ -9,6 +9,10 @@ script/source = "extends CanvasLayer
 
 func _on_receive_game_time(time_text):
 	get_node(\"TimerLabel\").text = \"time \" + time_text
+
+
+func _on_receive_death_count(death_count):
+	get_node(\"DeathsLabel\").text = str(death_count) + \" deaths\"
 "
 
 [node name="Game" type="Node"]
@@ -23,6 +27,7 @@ script = SubResource( 1 )
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="death_count" from="." to="ScoreHUD" method="_on_receive_death_count"]
 [connection signal="game_time" from="." to="ScoreHUD" method="_on_receive_game_time"]
 [connection signal="show_menu" from="." to="Menu" method="_on_Game_show_menu"]
 [connection signal="run_game" from="Menu" to="." method="_on_Menu_run_game"]

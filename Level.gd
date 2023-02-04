@@ -29,6 +29,7 @@ func _process(delta):
 func notify_player_death():
 	girl.position = starting_position
 	girl.velocity = Vector2.ZERO
+	get_parent().increment_death_count()
 	
 func touch_flag():
 	get_parent().level_finished(get_node(".").name)
