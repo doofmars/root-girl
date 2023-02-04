@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Fonts/Ring of Kerry.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 1 )
+
+[node name="ScoreHUD" type="CanvasLayer"]
+
+[node name="TimerLabel" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 181.0
+margin_bottom = 34.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Time 00:00"
+
+[node name="DeathsLabel" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -136.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 30.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0 deaths"
+align = 2
