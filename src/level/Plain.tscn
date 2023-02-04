@@ -23,3 +23,10 @@ position = Vector2( 59, 298 )
 
 [node name="StaticAnchor" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, 13 )
+
+[node name="Foliage" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 917559, 12, 0, 917607, 12, 0, 1114152, 14, 0, 1245197, 13, 0, 1245310, 14, 0 )
