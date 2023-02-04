@@ -8,7 +8,7 @@ export var VECTOR_SCALE = 400
 
 export var liana_speed = 2
 
-signal pull(delta, liana_destination)
+signal pull_character(delta, liana_destination)
 
 func _process(delta):
 	if liana_active and liana_destination != Vector2.ZERO and !liana_has_hit:
@@ -49,4 +49,4 @@ func shoot_liana():
 		liana_destination = result.position
 
 func pull(delta):
-	emit_signal("pull", delta, liana_destination)
+	emit_signal("pull_character", delta, liana_destination)
