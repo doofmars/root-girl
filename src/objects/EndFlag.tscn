@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Flag.png-47653dcbce6ad9726dae00766f6d8d5d.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 8 )
+
+[node name="EndFlag" type="Area2D"]
+
+[node name="Flag" type="Sprite" parent="."]
+scale = Vector2( 0.984375, 1 )
+texture = SubResource( 1 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 0 )
+shape = SubResource( 2 )
