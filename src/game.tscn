@@ -1,12 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/game.gd" type="Script" id=1]
 [ext_resource path="res://src/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ScoreHUD.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+func _on_receive_game_time(time_text):
+	get_node(\"TimerLabel\").text = \"time \" + time_text
+
+
+func _on_receive_death_count(death_count):
+	get_node(\"DeathsLabel\").text = str(death_count) + \" deaths\"
+"
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Menu" parent="." instance=ExtResource( 2 )]
 
+[node name="ScoreHUD" parent="." instance=ExtResource( 3 )]
+visible = false
+script = SubResource( 1 )
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="death_count" from="." to="ScoreHUD" method="_on_receive_death_count"]
+[connection signal="game_time" from="." to="ScoreHUD" method="_on_receive_game_time"]
 [connection signal="show_menu" from="." to="Menu" method="_on_Game_show_menu"]
 [connection signal="run_game" from="Menu" to="." method="_on_Menu_run_game"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
