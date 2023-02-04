@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/character/Liana.gd" type="Script" id=1]
-[ext_resource path="res://assets/Jungle Asset Pack/Chacter with outline/sprites/jump outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/Skills/Liana.png" type="Texture" id=3]
-
-[sub_resource type="CapsuleShape2D" id=1]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="LineShape2D" id=3]
 
@@ -21,18 +10,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="TestAnchor" type="Area2D" parent="."]
-position = Vector2( 827, 373 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestAnchor"]
-shape = SubResource( 1 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="TestAnchor"]
-frames = SubResource( 2 )
 
 [node name="LianaSprite" type="Sprite" parent="."]
 scale = Vector2( 1e-05, 1 )

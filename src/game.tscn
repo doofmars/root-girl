@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/level/level0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/character/Girl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/character/Liana.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/character/TestAnchor.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node"]
 
@@ -9,3 +11,7 @@
 
 [node name="Girl" parent="level0" instance=ExtResource( 2 )]
 position = Vector2( 142, 828 )
+
+[node name="Liana" parent="level0/Girl" instance=ExtResource( 3 )]
+
+[node name="TestAnchor" parent="level0" instance=ExtResource( 4 )]

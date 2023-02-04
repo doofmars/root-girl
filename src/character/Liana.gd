@@ -20,13 +20,13 @@ func _physics_process(_delta):
 		var space_state = get_world_2d().direct_space_state
 
 		# use global coordinates, not local to node
-		var result = space_state.intersect_ray(position, get_viewport().get_mouse_position(), [self], 1, true, true)
+		var result = space_state.intersect_ray(global_position, get_viewport().get_mouse_position(), [self], 1, true, true)
 		if result:
 			liana_active = true
 			liana_destination = result.position
 
 func _on_Liana_area_entered(area:Area2D):
 	print("_on_Liana_area_entered", area)
-	liana_has_hit = true
-	liana_active = true
-	liana_destination = Vector2.ZERO
+	# liana_has_hit = true
+	# liana_active = true
+	# liana_destination = Vector2.ZERO
