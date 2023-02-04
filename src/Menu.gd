@@ -5,6 +5,8 @@ signal run_game
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		go_to_game()
+	if Input.is_action_pressed("action_quit"):
+		get_tree().quit()
 
 func _on_StartButton_pressed():
 	go_to_game()

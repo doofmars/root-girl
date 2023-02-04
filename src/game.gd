@@ -23,7 +23,7 @@ func _on_Menu_run_game():
 		get_node("GameTimer").start()
 		
 func _process(delta):
-	if current_level != null and Input.is_action_pressed("ui_cancel"):
+	if current_level != null and Input.is_action_pressed("action_pause"):
 		emit_signal("show_menu", "Continue")
 
 func level_finished(level_name):
