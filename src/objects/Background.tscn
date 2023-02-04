@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Jungle Asset Pack/parallax background/plx-3.png" type="Texture" id=1]
+[ext_resource path="res://assets/Jungle Asset Pack/parallax background/plx-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Jungle Asset Pack/parallax background/plx-4.png" type="Texture" id=3]
+[ext_resource path="res://assets/Jungle Asset Pack/parallax background/plx-5.png" type="Texture" id=4]
+[ext_resource path="res://assets/Jungle Asset Pack/parallax background/plx-2.png" type="Texture" id=5]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.15, 1 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
