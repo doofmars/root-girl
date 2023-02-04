@@ -12,7 +12,6 @@ script = ExtResource( 4 )
 position = Vector2( 33, 123 )
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( -1, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
