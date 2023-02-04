@@ -4,7 +4,7 @@ var root_shooting = false
 var root_target = Vector2.ZERO
 var root_has_hit = false
 var root_length = 0
-var ray_length = 1000
+var ray_length = 400
 
 export var VECTOR_SCALE = 400
 export var root_speed = 2
@@ -44,7 +44,7 @@ func shoot_root(position: Vector2):
 	root_target = Vector2.ZERO
 
 	var from = global_position
-	var to = position
+	var to = get_global_mouse_position()
 	var direction = from.direction_to(to)
 	to = (direction * ray_length) + from
 

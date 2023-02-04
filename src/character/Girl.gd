@@ -61,11 +61,7 @@ func normal_movement(delta):
 	else:
 		$AnimatedSprite.animation = "fall"
 
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("hazard"):
-			get_parent().notify_player_death()
-			break
+	detect_collision()
 
 func swing_movement(delta):
 	if Input.get_action_strength("move_right") > 0:
@@ -82,6 +78,14 @@ func swing_movement(delta):
 	elif (velocity.x > 0):
 		facingRight = true
 	$AnimatedSprite.flip_h = not facingRight
+	detect_collision()
+
+func detect_collision():
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("hazard"):
+			get_parent().notify_player_death()
+			break
 
 func _on_RootSwing_detach():
 	attached_to_swing = false
