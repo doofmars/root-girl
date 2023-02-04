@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/level/jungle-tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/EndFlag.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/level/Plain.gd" type="Script" id=3]
 [ext_resource path="res://src/character/Girl.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objects/StaticAnchor.tscn" type="PackedScene" id=5]
 
 [node name="Plain" type="Node"]
 script = ExtResource( 3 )
@@ -20,3 +21,6 @@ position = Vector2( 281, 150 )
 
 [node name="Girl" parent="." instance=ExtResource( 4 )]
 position = Vector2( 62, 121 )
+
+[node name="StaticAnchor" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, 13 )
