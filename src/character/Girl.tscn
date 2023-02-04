@@ -64,4 +64,7 @@ shape = SubResource( 2 )
 [node name="RootSwing" parent="." instance=ExtResource( 19 )]
 position = Vector2( 0, 17 )
 
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+
 [connection signal="swing" from="RootSwing" to="." method="_on_RootSwing_swing"]

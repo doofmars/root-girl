@@ -303,6 +303,7 @@ points = PoolVector2Array( 19.8731, 12.2848, 15.5737, 16, 13.75, 16, 13.8125, 0,
 points = PoolVector2Array( 12.5206, 20.2427, 8.04209, 15.3099, 4.6021, 20.4374, 0, 14.3233, 0, 13.625, 16, 13.75, 16, 14.9776 )
 
 [resource]
+resource_local_to_scene = true
 5/name = "TwoSizeGrass"
 5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
@@ -1011,3 +1012,26 @@ points = PoolVector2Array( 12.5206, 20.2427, 8.04209, 15.3099, 4.6021, 20.4374, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
+11/name = "shrubbery"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 480, 256, 48, 48 )
+11/tile_mode = 1
+11/autotile/bitmask_mode = 1
+11/autotile/bitmask_flags = [ Vector2( 0, 1 ), 48, Vector2( 1, 0 ), 144, Vector2( 1, 1 ), 186, Vector2( 1, 2 ), 18, Vector2( 2, 1 ), 24 ]
+11/autotile/icon_coordinate = Vector2( 1, 1 )
+11/autotile/tile_size = Vector2( 16, 16 )
+11/autotile/spacing = 0
+11/autotile/occluder_map = [  ]
+11/autotile/navpoly_map = [  ]
+11/autotile/priority_map = [  ]
+11/autotile/z_index_map = [  ]
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0

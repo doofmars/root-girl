@@ -1,3 +1,4 @@
+class_name Girl
 extends KinematicBody2D
 
 const WALK_FORCE = 5000
