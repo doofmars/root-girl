@@ -10,6 +10,6 @@ func _on_StartButton_pressed():
 func _on_QuitButton_pressed():
 	get_tree().quit()
 
-func _on_Game_show_menu():
-	$StartButton.text = "Continue"
+func _on_Game_show_menu(text):
+	$StartButton.text = text
 	show()
