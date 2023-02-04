@@ -10,6 +10,8 @@ var facingRight = true
 
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	set_meta('type', 'girl')
 
 func _physics_process(delta):
 	# Horizontal movement code. First, get the player's input.

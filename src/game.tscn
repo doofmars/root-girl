@@ -8,4 +8,5 @@ script = ExtResource( 1 )
 
 [node name="Menu" parent="." instance=ExtResource( 2 )]
 
+[connection signal="show_menu" from="." to="Menu" method="_on_Game_show_menu"]
 [connection signal="run_game" from="Menu" to="." method="_on_Menu_run_game"]
