@@ -5,7 +5,7 @@ signal game_time
 signal death_count
 
 var current_level
-var start_time_offset
+var millis_elapsed = 0
 var deaths = 0
 
 const levels = [
@@ -17,7 +17,7 @@ const levels = [
 func _on_Menu_run_game():
 	if current_level == null:
 		start_level(levels[0])
-		start_time_offset = OS.get_ticks_msec()
+		millis_elapsed = 0
 		deaths = 0
 		emit_signal("death_count", deaths)
 		get_node("GameTimer").start()
@@ -46,7 +46,7 @@ func start_level(level_name):
 
 
 func _on_GameTimer_timeout():
-	var millis_elapsed = OS.get_ticks_msec() - start_time_offset
+	millis_elapsed += 100
 	var tenths = (millis_elapsed / 100) % 10
 	var seconds = (millis_elapsed / 1_000) % 60
 	var minutes = (millis_elapsed / 60_000) % 60

@@ -19,12 +19,14 @@ func _on_receive_death_count(death_count):
 script = ExtResource( 1 )
 
 [node name="Menu" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 
 [node name="ScoreHUD" parent="." instance=ExtResource( 3 )]
 visible = false
 script = SubResource( 1 )
 
 [node name="GameTimer" type="Timer" parent="."]
+pause_mode = 1
 wait_time = 0.1
 
 [connection signal="death_count" from="." to="ScoreHUD" method="_on_receive_death_count"]
