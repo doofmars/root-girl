@@ -63,4 +63,4 @@ shape = SubResource( 2 )
 
 [node name="Liana" parent="." instance=ExtResource( 19 )]
 
-[connection signal="pull_character" from="Liana" to="." method="_on_Liana_pull_character"]
+[connection signal="swing" from="Liana" to="." method="_on_Liana_swing"]

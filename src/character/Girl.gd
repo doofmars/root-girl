@@ -48,6 +48,8 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.animation = "fall"
 
-func _on_Liana_pull_character(delta:float, liana_destination:Vector2):
-	var velo = (liana_destination - global_position).normalized() * 400
-	position += velo * delta
+func _on_Liana_swing(delta:float, liana_target:Vector2, liana_length:float):
+	if (liana_target - global_position).length() > liana_length:
+		position += (liana_target - global_position).normalized() * delta * 800
+	if (liana_target - global_position).length() < liana_length:
+		position += (global_position - liana_target).normalized() * delta * 500
