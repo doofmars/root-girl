@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scr/level/jungle-tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/level/jungle-tileset.tres" type="TileSet" id=1]
 
 [node name="level1" type="Node2D"]
 
