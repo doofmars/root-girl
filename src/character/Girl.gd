@@ -6,6 +6,7 @@ const STOP_FORCE = 5000
 const JUMP_SPEED = 300
 
 var velocity = Vector2()
+var facingLeft = true
 
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -26,8 +27,21 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 
 	# Move based on the velocity and snap to the ground.
-	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
+	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2 .UP)
 
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y = -JUMP_SPEED
+
+	if (velocity.x < 0):
+		facingLeft = true
+	elif (velocity.x > 0):
+		facingLeft = false
+	$AnimatedSprite.flip_h = facingLeft
+	if (is_on_floor()):
+		if (velocity.x == 0):
+			$AnimatedSprite.animation = "idle"
+		else:
+			$AnimatedSprite.animation = "run"
+	else:
+		$AnimatedSprite.animation = "fall"
