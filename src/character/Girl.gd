@@ -46,7 +46,12 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.animation = "run"
 	else:
-		$AnimatedSprite.animation = "fall"	
+		$AnimatedSprite.animation = "fall"
+
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("hazard"):
+			get_parent().notify_player_death()
 
 func _on_RootSwing_swing(delta:float, root_target:Vector2, root_length:float):
 	if (root_target - global_position).length() > root_length:

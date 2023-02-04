@@ -5,8 +5,9 @@ signal show_menu
 var current_level
 
 const levels = [
+	"Spikes",
 	"Plain", 
-	"Basketball"
+	"Basketball",
 ]
 
 func _on_Menu_run_game():
