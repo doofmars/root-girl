@@ -28,7 +28,7 @@ func _physics_process(delta):
 
 func normal_movement(delta):
 	# Horizontal movement code. First, get the player's input.
-	var walk = WALK_FORCE * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
+	var walk = WALK_FORCE * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	# Slow down the player if they're not trying to move.
 	if abs(walk) < WALK_FORCE * 0.2:
 		# The velocity, slowed down a bit, and then reassigned.
@@ -45,7 +45,7 @@ func normal_movement(delta):
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2 .UP)
 
 	# Check for jumping. is_on_floor() must be called after movement code.
-	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
+	if is_on_floor() and Input.is_action_just_pressed("move_up"):
 		velocity.y = -JUMP_SPEED
 
 	if (velocity.x < 0):
@@ -68,9 +68,9 @@ func normal_movement(delta):
 			break
 
 func swing_movement(delta):
-	if Input.get_action_strength("ui_right") > 0:
+	if Input.get_action_strength("move_right") > 0:
 		velocity += (swing_target - global_position).normalized().rotated(PI/4) * SWING_FORCE;
-	if Input.get_action_strength("ui_left") > 0:
+	if Input.get_action_strength("move_left") > 0:
 		velocity += (swing_target - global_position).normalized().rotated(-PI/4) * SWING_FORCE;
 
 	velocity.x = clamp(velocity.x, -MAX_SWING_SPEED, MAX_SWING_SPEED)

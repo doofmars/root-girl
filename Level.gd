@@ -6,6 +6,7 @@ var girl
 const LIMIT_LEFT = 0
 const LIMIT_TOP = 0
 const LIMIT_BOTTOM = 360
+const RESET_TOLERANCE = 100
 
 func _ready():
 	girl = get_node("Girl")
@@ -23,7 +24,7 @@ func _ready():
 			camera.limit_bottom = LIMIT_BOTTOM
 
 func _process(delta):
-	if Input.is_action_pressed("action_restart"):
+	if Input.is_action_pressed("action_restart") and (starting_position - girl.position).length() > RESET_TOLERANCE:
 		notify_player_death()
 
 func notify_player_death():
