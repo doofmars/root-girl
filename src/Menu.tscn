@@ -25,7 +25,7 @@ color = Color( 0, 0, 0, 0.470588 )
 anchor_right = 1.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 1 )
-text = "Groot Girl"
+text = "Root Girl"
 align = 1
 
 [node name="StartButton" type="Button" parent="."]
