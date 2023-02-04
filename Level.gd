@@ -6,6 +6,10 @@ var girl
 func _ready():
 	girl = get_node("Girl")
 	starting_position = girl.position
+	
+func _process(delta):
+	if Input.is_action_pressed("action_restart"):
+		notify_player_death()
 
 func notify_player_death():
 	girl.position = starting_position
