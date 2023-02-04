@@ -3,7 +3,7 @@
 [ext_resource path="res://src/level/jungle-tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/level/level0.gd" type="Script" id=2]
 [ext_resource path="res://src/character/Girl.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/character/TestAnchor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objects/StaticAnchor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/character/Liana.tscn" type="PackedScene" id=5]
 
 [node name="level0" type="Node2D"]
@@ -24,5 +24,5 @@ __meta__ = {
 
 [node name="Liana" parent="Girl" instance=ExtResource( 5 )]
 
-[node name="TestAnchor" parent="." instance=ExtResource( 4 )]
-position = Vector2( 178, 47 )
+[node name="StaticAnchor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 151, 64 )
