@@ -6,7 +6,7 @@ const STOP_FORCE = 5000
 const JUMP_SPEED = 300
 
 var velocity = Vector2()
-var facingLeft = true
+var facingRight = true
 
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -34,10 +34,10 @@ func _physics_process(delta):
 		velocity.y = -JUMP_SPEED
 
 	if (velocity.x < 0):
-		facingLeft = true
+		facingRight = false
 	elif (velocity.x > 0):
-		facingLeft = false
-	$AnimatedSprite.flip_h = facingLeft
+		facingRight = true
+	$AnimatedSprite.flip_h = not facingRight
 	if (is_on_floor()):
 		if (velocity.x == 0):
 			$AnimatedSprite.animation = "idle"
