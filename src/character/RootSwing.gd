@@ -3,7 +3,8 @@ extends Node2D
 var root_shooting = false
 var root_target = Vector2.ZERO
 var root_has_hit = false
-var root_length = 0;
+var root_length = 0
+var ray_length = 400
 
 export var VECTOR_SCALE = 400
 export var root_speed = 2
@@ -24,28 +25,38 @@ func _process(delta):
 		$RootSprite.look_at(root_target)
 		$RootSprite.scale.x = (self.global_position - root_target).length()/411
 
-func _physics_process(_delta):
-	if root_has_hit:
-		if Input.is_action_just_released("swing"):
-			root_has_hit = false
-			root_target = Vector2.ZERO
-			$RootSprite.scale.x=0
-			emit_signal("detach")
-	else:
-		if Input.is_action_just_pressed("swing"):
-			shoot_root()
+func _input(event):
+	if event is InputEventMouse:
+		if root_has_hit:
+			if event.is_action_released("swing"):
+				root_has_hit = false
+				root_target = Vector2.ZERO
+				$RootSprite.scale.x=0
+				emit_signal("detach")
+		else:
+			if event.is_action_pressed("swing"):
+				shoot_root(event.position)
 
-func shoot_root():
+		# event = make_input_local(event)
+		# ABT1.position = event.position
+
+func shoot_root(position: Vector2):
+
+	var from = global_position
+	var to = get_global_mouse_position()
+	var direction = from.direction_to(to)
+	to = (direction * ray_length) + from
+
 	var space_state = get_world_2d().direct_space_state
+	var camera = get_parent().get_node("Camera")
 
 	# use global coordinates, not local to node
-	var result = space_state.intersect_ray(global_position, get_viewport().get_mouse_position(), [self, get_parent()], 2, true, true)
+	var result = space_state.intersect_ray(from, to, [self, get_parent()], 2, true, true)
 	if result:
 		root_shooting = true
-		root_target = result.position
+		root_target = result.position #+ camera.position
 
-
-func _on_RootSwing_area_shape_entered(_area_rid:RID, _area:Area2D, _area_shape_index:int, _local_shape_index:int):
+func _on_RootSwing_body_entered(_body:Node):
 	if root_shooting:
 		root_shooting = false
 		root_has_hit = true
