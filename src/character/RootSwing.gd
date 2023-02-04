@@ -9,7 +9,8 @@ export var VECTOR_SCALE = 400
 export var root_speed = 2
 export var root_max_length = 100
 
-signal swing(delta, root_target, root_length)
+signal attach(root_target, root_length)
+signal detach()
 
 func _process(delta):
 	if root_shooting and root_target != Vector2.ZERO and !root_has_hit:
@@ -23,15 +24,15 @@ func _process(delta):
 		$RootSprite.look_at(root_target)
 		$RootSprite.scale.x = (self.global_position - root_target).length()/411
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if root_has_hit:
-		if Input.is_action_just_released("liana"):
+		if Input.is_action_just_released("swing"):
 			root_has_hit = false
 			root_target = Vector2.ZERO
 			$RootSprite.scale.x=0
-		swing(delta)
+			emit_signal("detach")
 	else:
-		if Input.is_action_just_pressed("liana"):
+		if Input.is_action_just_pressed("swing"):
 			shoot_root()
 
 func shoot_root():
@@ -43,9 +44,6 @@ func shoot_root():
 		root_shooting = true
 		root_target = result.position
 
-func swing(delta):
-	emit_signal("swing", delta, root_target, root_length)
-
 
 func _on_RootSwing_area_shape_entered(_area_rid:RID, _area:Area2D, _area_shape_index:int, _local_shape_index:int):
 	if root_shooting:
@@ -53,3 +51,4 @@ func _on_RootSwing_area_shape_entered(_area_rid:RID, _area:Area2D, _area_shape_i
 		root_has_hit = true
 		root_length = (self.global_position - root_target).length()
 		$RootCollisionShape.position = Vector2.ZERO
+		emit_signal("attach", root_target, root_length)
