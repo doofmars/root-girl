@@ -1,6 +1,9 @@
-[gd_resource type="TileSet" load_steps=98 format=2]
+[gd_resource type="TileSet" load_steps=102 format=2]
 
 [ext_resource path="res://assets/tileset.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=109]
+points = PoolVector2Array( 12.0678, 12.454, 16.2218, 8.88424, 11.8731, 5.57407, 16.4814, 0, 19.5, 0, 19.4375, 16, 16.5, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 3.5, 16, 3.5 )
@@ -290,8 +293,16 @@ points = PoolVector2Array( 12.5, 16, 3.5, 16, 3.5, 12.5, 0, 12.5, 0, 0, 16, 0, 1
 [sub_resource type="ConvexPolygonShape2D" id=108]
 points = PoolVector2Array( 12.5, 3.5, 16, 3.5, 16, 12.5, 12.5, 12.5, 12.5, 16, 3.5, 16, 3.5, 0, 12.5, 0 )
 
+[sub_resource type="ConvexPolygonShape2D" id=110]
+points = PoolVector2Array( 4.37574, 11.9286, 8.02083, 17.5365, 12.4136, 12.1156, 16, 17.5365, 16, 18.6875, 0, 18.8125, 0, 18.0038 )
+
+[sub_resource type="ConvexPolygonShape2D" id=111]
+points = PoolVector2Array( 19.8731, 12.2848, 15.5737, 16, 13.75, 16, 13.8125, 0, 14.4522, 0, 19.9847, 5.54242, 15.8956, 9.50166 )
+
+[sub_resource type="ConvexPolygonShape2D" id=112]
+points = PoolVector2Array( 12.5206, 20.2427, 8.04209, 15.3099, 4.6021, 20.4374, 0, 14.3233, 0, 13.625, 16, 13.75, 16, 14.9776 )
+
 [resource]
-resource_local_to_scene = true
 5/name = "TwoSizeGrass"
 5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
@@ -916,3 +927,87 @@ resource_local_to_scene = true
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
+7/name = "spike-north"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 16, 32, 16, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 110 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 110 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+7/z_index = 0
+8/name = "spike-east"
+8/texture = ExtResource( 2 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 32, 48, 32, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 111 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 111 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+8/z_index = 0
+9/name = "spike-south"
+9/texture = ExtResource( 2 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 32, 64, 16, 32 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 112 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 112 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+9/z_index = 0
+10/name = "spike-west"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 64, 32, 16 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 109 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 109 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0

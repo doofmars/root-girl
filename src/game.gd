@@ -6,7 +6,8 @@ var current_level
 
 const levels = [
 	"Plain", 
-	"Basketball"
+	"Basketball",
+	"Spikes"
 ]
 
 func _on_Menu_run_game():
