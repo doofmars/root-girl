@@ -12,23 +12,18 @@ const MAX_SWING_SPEED = 600
 var velocity = Vector2()
 var facingRight = true
 
-var attached_to_swing = false
-
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-onready var root_handle: RootHandle = get_tree().root.find_node("RootHandle", true, false)
-onready var root_anchor: StaticBody2D = get_tree().root.find_node("RootAnchor", true, false)
-onready var root_joint: PinJoint2D = get_tree().root.find_node("RootJoint", true, false)
+onready var the_root: TheRoot = get_tree().root.find_node("TheRoot", true, false)
 
 func _ready():
 	set_meta('type', 'girl')
 
 func _physics_process(delta):
-	if attached_to_swing and Input.is_action_just_pressed("move_up"):
+	if the_root.is_attached() and Input.is_action_just_pressed("move_up"):
 		velocity.y = -JUMP_SPEED
 		get_node("RootSwing").detach_root()
-	root_handle.update_position = not attached_to_swing
-	root_handle.desired_position = global_position
-	if attached_to_swing:
+	the_root.on_player_move(global_position)
+	if the_root.is_attached():
 		swing_movement(delta)
 	else:
 		normal_movement(delta)
@@ -60,7 +55,7 @@ func normal_movement(delta):
 	update_character_after_movement()
 
 func swing_movement(delta):
-	velocity = root_handle.linear_velocity
+	velocity = the_root.get_handle_velocity()
 	velocity = move_and_slide(velocity)
 
 	update_character_after_movement()
@@ -90,12 +85,8 @@ func update_character_after_movement():
 			break
 
 func _on_RootSwing_detach():
-	root_joint.node_b = root_anchor.get_path()
-	attached_to_swing = false
+	the_root.detach()
 
 
 func _on_RootSwing_attach(root_target:Vector2, _root_length:float):
-	root_anchor.global_position = root_target
-	root_joint.global_position = root_target
-	root_joint.node_b = root_handle.get_path()
-	attached_to_swing = true
+	the_root.attach(root_target)

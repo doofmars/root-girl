@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "RootHandle",
 "language": "GDScript",
 "path": "res://src/character/RootHandle.gd"
+}, {
+"base": "Node",
+"class": "TheRoot",
+"language": "GDScript",
+"path": "res://src/objects/TheRoot.gd"
 } ]
 _global_script_class_icons={
 "Girl": "",
-"RootHandle": ""
+"RootHandle": "",
+"TheRoot": ""
 }
 
 [application]

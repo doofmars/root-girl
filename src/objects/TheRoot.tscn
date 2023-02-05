@@ -7,10 +7,10 @@
 [node name="TheRoot" type="Node"]
 script = ExtResource( 3 )
 
-[node name="RootHandle" parent="." instance=ExtResource( 2 )]
-
 [node name="RootAnchor" parent="." instance=ExtResource( 1 )]
 
 [node name="RootJoint" type="PinJoint2D" parent="."]
 node_a = NodePath("../RootAnchor")
 node_b = NodePath("../RootAnchor")
+
+[node name="RootHandle" parent="." instance=ExtResource( 2 )]
