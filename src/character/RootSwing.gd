@@ -7,6 +7,7 @@ var root_length = 0
 var ray_length = 400
 
 export var VECTOR_SCALE = 400
+export var root_groth = 800
 export var root_speed = 2
 export var root_max_length = 100
 
@@ -16,14 +17,21 @@ signal detach()
 func _process(delta):
 	if root_shooting and root_target != Vector2.ZERO and !root_has_hit:
 		$RootSprite.look_at(root_target)
-		$RootSprite.scale.x += root_speed * delta
+		var current_region = $RootSprite.region_rect
+		var current_length = $RootSprite.region_rect.size.x
+		var length = current_length + root_groth * delta
+		
+		if length > (self.global_position - root_target).length():
+			length = (self.global_position - root_target).length()
+		
+		$RootSprite.region_rect.size.x = length
 		
 		var velo = (root_target - $RootCollisionShape.global_position).normalized() * VECTOR_SCALE * root_speed * delta
 		$RootCollisionShape.position += velo
 
 	if root_has_hit:
 		$RootSprite.look_at(root_target)
-		$RootSprite.scale.x = (self.global_position - root_target).length()/411
+		$RootSprite.region_rect.size.x = (self.global_position - root_target).length()
 
 func _input(event):
 	if event is InputEventMouse:
@@ -31,7 +39,7 @@ func _input(event):
 			if event.is_action_released("swing"):
 				root_has_hit = false
 				root_target = Vector2.ZERO
-				$RootSprite.scale.x=0
+				$RootSprite.region_rect.size.x = 0
 				emit_signal("detach")
 		else:
 			if event.is_action_pressed("swing"):
@@ -52,7 +60,7 @@ func shoot_root(position: Vector2):
 
 	var result = space_state.intersect_ray(from, to, [self, get_parent()], 2, true, true)
 	if result:
-		print(from, position, result)
+		# print(from, position, result)
 		root_shooting = true
 		root_target = result.position
 
