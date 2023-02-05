@@ -37,16 +37,20 @@ func _input(event):
 	if event is InputEventMouse:
 		if root_has_hit:
 			if event.is_action_released("swing"):
-				root_has_hit = false
-				root_target = Vector2.ZERO
-				$RootSprite.region_rect.size.x = 0
-				emit_signal("detach")
+				detach_root()
 		else:
 			if event.is_action_pressed("swing"):
 				shoot_root(event.position)
 
 		# event = make_input_local(event)
 		# ABT1.position = event.position
+
+func detach_root():
+	root_has_hit = false
+	root_shooting = false
+	root_target = Vector2.ZERO
+	$RootSprite.region_rect.size.x = 0
+	emit_signal("detach")
 
 func shoot_root(position: Vector2):
 	root_target = Vector2.ZERO
