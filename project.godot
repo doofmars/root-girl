@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Girl",
 "language": "GDScript",
 "path": "res://src/character/Girl.gd"
+}, {
+"base": "RigidBody2D",
+"class": "RootHandle",
+"language": "GDScript",
+"path": "res://src/character/RootHandle.gd"
 } ]
 _global_script_class_icons={
-"Girl": ""
+"Girl": "",
+"RootHandle": ""
 }
 
 [application]
