@@ -15,6 +15,7 @@ const levels = [
 	"Tutorial4",
 	"Plain", 
 	"Basketball",
+	"LongSwingSpikes",
 	"Spikes",
 ]
 

@@ -5,7 +5,7 @@
 [ext_resource path="res://src/objects/EndFlag.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/level/Spikes.gd" type="Script" id=4]
 
-[node name="Spikes" type="Node"]
+[node name="EmptyLevel" type="Node"]
 script = ExtResource( 4 )
 
 [node name="Girl" parent="." instance=ExtResource( 2 )]
