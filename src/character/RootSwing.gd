@@ -8,8 +8,8 @@ var ray_length = 400
 
 export var VECTOR_SCALE = 400
 export var root_groth = 800
-export var root_speed = 2
-export var root_max_length = 100
+export var root_speed = 10
+export var root_max_length = 300
 
 signal attach(root_target, root_length)
 signal detach()
@@ -43,9 +43,6 @@ func _input(event):
 		else:
 			if event.is_action_pressed("swing"):
 				shoot_root(event.position)
-
-		# event = make_input_local(event)
-		# ABT1.position = event.position
 
 func detach_root():
 	root_has_hit = false
