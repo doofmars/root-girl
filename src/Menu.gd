@@ -36,3 +36,8 @@ func switchMusic(paused):
 	else:
 		menuMusicPlayer.stop()
 		levelMusicPlayer.play(menuMusicPlayer.get_playback_position())
+
+
+func _on_CreditsButton_pressed():
+	self.visible = false
+	$Credits.visible = true
