@@ -78,6 +78,7 @@ func update_character_after_movement():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("hazard"):
+			$OuchPlayer.play(0)
 			get_parent().notify_player_death()
 			break
 

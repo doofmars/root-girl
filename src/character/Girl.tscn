@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/Magic-Cliffs-Gamekit/Player Sprite/Sprites/run/run2.png" type="Texture" id=1]
 [ext_resource path="res://assets/Magic-Cliffs-Gamekit/Player Sprite/Sprites/run/run3.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/Magic-Cliffs-Gamekit/Player Sprite/Sprites/run/run7.png" type="Texture" id=17]
 [ext_resource path="res://assets/Magic-Cliffs-Gamekit/Player Sprite/Sprites/run/run1.png" type="Texture" id=18]
 [ext_resource path="res://src/character/RootSwing.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/Sound/SFX_Vox_Female_Pain_Ouch.wav" type="AudioStream" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -54,7 +55,7 @@ script = ExtResource( 16 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "run"
-frame = 4
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,6 +67,9 @@ position = Vector2( 0, 21 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+
+[node name="OuchPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
 
 [connection signal="attach" from="RootSwing" to="." method="_on_RootSwing_attach"]
 [connection signal="detach" from="RootSwing" to="." method="_on_RootSwing_detach"]
