@@ -29,7 +29,6 @@ func _on_Game_show_menu(text):
 func switchMusic(paused):
 	var levelMusicPlayer = get_node("../LevelMusicPlayer")
 	var menuMusicPlayer = get_node("../MenuMusicPlayer")
-	print(levelMusicPlayer)
 
 	if paused:
 		levelMusicPlayer.stop()

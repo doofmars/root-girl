@@ -72,10 +72,14 @@ func update_character_after_movement():
 	if (is_on_floor()):
 		if (velocity.x == 0):
 			$AnimatedSprite.animation = "idle"
+			$StepPlayer.playing = false
 		else:
 			$AnimatedSprite.animation = "run"
+			if !$StepPlayer.playing:
+				$StepPlayer.playing = true
 	else:
 		$AnimatedSprite.animation = "fall"
+		$StepPlayer.playing = false
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("hazard"):

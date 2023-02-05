@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/running-on-dirt-path.mp3-4448096023848d3c26a992952253af69.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/running-on-dirt-path.mp3"
+dest_files=[ "res://.import/running-on-dirt-path.mp3-4448096023848d3c26a992952253af69.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
