@@ -79,7 +79,7 @@ volume_db = -13.0
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
-volume_db = -7.378
+volume_db = -5.0
 
 [connection signal="attach" from="RootSwing" to="." method="_on_RootSwing_attach"]
 [connection signal="detach" from="RootSwing" to="." method="_on_RootSwing_detach"]

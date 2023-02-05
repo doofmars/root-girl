@@ -21,16 +21,19 @@ func _on_Menu_run_game():
 		deaths = 0
 		emit_signal("death_count", deaths)
 		get_node("GameTimer").start()
+		$GameFinishedMusicPlayer.stop()
 		
 func _process(delta):
 	if current_level != null and Input.is_action_pressed("action_pause"):
 		emit_signal("show_menu", "Continue")
 
 func level_finished(level_name):
+	$LevelFinishedMusicPlayer.play(0)
 	var index_of_next = levels.find(level_name) + 1
 	if (index_of_next < levels.size()):
 		start_level(levels[index_of_next])
 	else:
+		$GameFinishedMusicPlayer.play(0)
 		current_level.queue_free()
 		current_level = null
 		get_node("GameTimer").stop()
@@ -43,7 +46,6 @@ func start_level(level_name):
 	current_level = level_scene.instance()
 	add_child(current_level)
 	get_node("ScoreHUD").show()
-
 
 func _on_GameTimer_timeout():
 	millis_elapsed += 100

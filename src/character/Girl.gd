@@ -47,7 +47,8 @@ func normal_movement(delta):
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed("move_up"):
 		velocity.y = -JUMP_SPEED
-		$JumpPlayer.play(0)
+		if !$JumpPlayer.playing:
+			$JumpPlayer.playing = true
 
 	update_character_after_movement()
 
