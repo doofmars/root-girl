@@ -30,7 +30,7 @@ func _process(delta):
 func notify_player_death():
 	girl.position = starting_position
 	girl.velocity = Vector2.ZERO
-	girl.get_node("RootSwing").detach_root()
+	get_parent().get_node("TheRoot").detach()
 	if get_parent().has_method("increment_death_count"):
 		get_parent().increment_death_count()
 	
