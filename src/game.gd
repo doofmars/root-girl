@@ -17,6 +17,7 @@ const levels = [
 	"Basketball",
 	"LongSwingSpikes",
 	"Spikes",
+	"Whichpath",
 ]
 
 func _on_Menu_run_game():
