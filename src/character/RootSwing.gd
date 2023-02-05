@@ -28,6 +28,8 @@ func _process(delta):
 		
 		var velo = (root_target - $RootCollisionShape.global_position).normalized() * VECTOR_SCALE * root_speed * delta
 		$RootCollisionShape.position += velo
+		if !$RootGrowMusicPlayer.playing:
+			$RootGrowMusicPlayer.playing = true
 
 	if root_has_hit:
 		$RootSprite.look_at(root_target)
@@ -70,6 +72,8 @@ func shoot_root(position: Vector2):
 
 func _on_RootSwing_body_entered(_body:Node):
 	if root_shooting:
+		$RootGrowMusicPlayer.playing = false
+		$RootHitMusicPlayer.play(0)
 		root_shooting = false
 		root_has_hit = true
 		root_length = (self.global_position - root_target).length()
