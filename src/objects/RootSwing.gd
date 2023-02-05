@@ -11,8 +11,10 @@ export var root_groth = 800
 export var root_speed = 10
 export var root_max_length = 300
 
-signal attach(root_target, root_length)
+signal attach(root_target)
 signal detach()
+
+onready var root_handle: RootHandle = get_parent()
 
 func _process(delta):
 	if root_shooting and root_target != Vector2.ZERO and !root_has_hit:
@@ -21,8 +23,8 @@ func _process(delta):
 		var current_length = $RootSprite.region_rect.size.x
 		var length = current_length + root_groth * delta
 		
-		if length > (self.global_position - root_target).length():
-			length = (self.global_position - root_target).length()
+		if length > (root_handle.global_position - root_target).length():
+			length = (root_handle.global_position - root_target).length()
 		
 		$RootSprite.region_rect.size.x = length
 		
@@ -33,7 +35,7 @@ func _process(delta):
 
 	if root_has_hit:
 		$RootSprite.look_at(root_target)
-		$RootSprite.region_rect.size.x = (self.global_position - root_target).length()
+		$RootSprite.region_rect.size.x = (root_handle.global_position - root_target).length()
 
 func _input(event):
 	if event is InputEventMouse:
@@ -61,7 +63,7 @@ func shoot_root(position: Vector2):
 
 	var space_state = get_world_2d().direct_space_state
 
-	var result = space_state.intersect_ray(from, to, [self, get_parent()], 2, true, true)
+	var result = space_state.intersect_ray(from, to, [root_handle, get_parent()], 2, true, true)
 	if result:
 		# print(from, position, result)
 		root_shooting = true
@@ -73,6 +75,5 @@ func _on_RootSwing_body_entered(_body:Node):
 		$RootHitMusicPlayer.play(0)
 		root_shooting = false
 		root_has_hit = true
-		root_length = (self.global_position - root_target).length()
 		$RootCollisionShape.position = Vector2.ZERO
-		emit_signal("attach", root_target, root_length)
+		emit_signal("attach", root_target)

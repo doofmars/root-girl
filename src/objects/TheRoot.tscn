@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/objects/RootAnchor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/RootHandle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/objects/TheRoot.gd" type="Script" id=3]
+[ext_resource path="res://src/objects/RootSwing.tscn" type="PackedScene" id=4]
 
 [node name="TheRoot" type="Node"]
 script = ExtResource( 3 )
@@ -14,3 +15,8 @@ node_a = NodePath("../RootAnchor")
 node_b = NodePath("../RootAnchor")
 
 [node name="RootHandle" parent="." instance=ExtResource( 2 )]
+
+[node name="RootSwing" parent="RootHandle" instance=ExtResource( 4 )]
+
+[connection signal="attach" from="RootHandle/RootSwing" to="." method="_on_RootSwing_attach"]
+[connection signal="detach" from="RootHandle/RootSwing" to="." method="_on_RootSwing_detach"]
