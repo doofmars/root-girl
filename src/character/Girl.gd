@@ -19,10 +19,10 @@ func _ready():
 	set_meta('type', 'girl')
 
 func _physics_process(delta):
+	the_root.on_player_move($CollisionShape2D.global_position, velocity)
 	if the_root.is_attached() and Input.is_action_just_pressed("move_up"):
 		velocity.y = -JUMP_SPEED
-		get_node("RootSwing").detach_root()
-	the_root.on_player_move(global_position)
+		the_root.detach()
 	if the_root.is_attached():
 		swing_movement(delta)
 	else:
@@ -83,10 +83,3 @@ func update_character_after_movement():
 			$OuchPlayer.play(0)
 			get_parent().notify_player_death()
 			break
-
-func _on_RootSwing_detach():
-	the_root.detach()
-
-
-func _on_RootSwing_attach(root_target:Vector2, _root_length:float):
-	the_root.attach(root_target)
