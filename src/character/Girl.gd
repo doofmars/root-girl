@@ -48,6 +48,21 @@ func normal_movement(delta):
 	if is_on_floor() and Input.is_action_just_pressed("move_up"):
 		velocity.y = -JUMP_SPEED
 
+	update_character_after_movement()
+
+func swing_movement(delta):
+	if Input.get_action_strength("move_right") > 0:
+		velocity += (swing_target - global_position).normalized().rotated(PI/4) * SWING_FORCE;
+	if Input.get_action_strength("move_left") > 0:
+		velocity += (swing_target - global_position).normalized().rotated(-PI/4) * SWING_FORCE;
+
+	velocity.x = clamp(velocity.x, -MAX_SWING_SPEED, MAX_SWING_SPEED)
+	velocity.y = clamp(velocity.y, -MAX_SWING_SPEED, MAX_SWING_SPEED)
+	velocity = move_and_slide(velocity)
+
+	update_character_after_movement()
+
+func update_character_after_movement():
 	if (velocity.x < 0):
 		facingRight = false
 	elif (velocity.x > 0):
@@ -60,27 +75,6 @@ func normal_movement(delta):
 			$AnimatedSprite.animation = "run"
 	else:
 		$AnimatedSprite.animation = "fall"
-
-	detect_collision()
-
-func swing_movement(delta):
-	if Input.get_action_strength("move_right") > 0:
-		velocity += (swing_target - global_position).normalized().rotated(PI/4) * SWING_FORCE;
-	if Input.get_action_strength("move_left") > 0:
-		velocity += (swing_target - global_position).normalized().rotated(-PI/4) * SWING_FORCE;
-
-	velocity.x = clamp(velocity.x, -MAX_SWING_SPEED, MAX_SWING_SPEED)
-	velocity.y = clamp(velocity.y, -MAX_SWING_SPEED, MAX_SWING_SPEED)
-	velocity = move_and_slide(velocity)
-
-	if (velocity.x < 0):
-		facingRight = false
-	elif (velocity.x > 0):
-		facingRight = true
-	$AnimatedSprite.flip_h = not facingRight
-	detect_collision()
-
-func detect_collision():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("hazard"):
