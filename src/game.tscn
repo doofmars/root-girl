@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/game.gd" type="Script" id=1]
 [ext_resource path="res://src/Menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ScoreHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/objects/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Sound/MUSIC_SouthAmericaJungle_PercussionEnsemble_110BPM_Loop.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Sound/MUSIC_SouthAmericanJungle_Udu_110BPM_Loop.wav" type="AudioStream" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends CanvasLayer
@@ -31,6 +33,14 @@ script = SubResource( 1 )
 [node name="GameTimer" type="Timer" parent="."]
 pause_mode = 1
 wait_time = 0.1
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 6 )
+autoplay = true
 
 [connection signal="death_count" from="." to="ScoreHUD" method="_on_receive_death_count"]
 [connection signal="game_time" from="." to="ScoreHUD" method="_on_receive_game_time"]
