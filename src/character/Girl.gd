@@ -89,4 +89,4 @@ func _on_RootSwing_detach():
 
 
 func _on_RootSwing_attach(root_target:Vector2, _root_length:float):
-	the_root.attach(root_target)
+	the_root.attach(root_target, velocity)
