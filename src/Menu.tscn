@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Fonts/Berthessa ttf.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Menu.gd" type="Script" id=2]
@@ -8,6 +8,12 @@ size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 24
+extra_spacing_top = -30
+extra_spacing_bottom = -20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 24
 extra_spacing_top = -30
 extra_spacing_bottom = -20
@@ -35,11 +41,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = -25.0
+margin_top = -50.0
 margin_right = 100.0
-margin_bottom = 25.0
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
+
+[node name="CreditsButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 3 )
+text = "Credits"
 
 [node name="QuitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -47,9 +64,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = 50.0
+margin_top = 100.0
 margin_right = 100.0
-margin_bottom = 100.0
+margin_bottom = 150.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
