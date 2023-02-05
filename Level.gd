@@ -36,4 +36,5 @@ func notify_player_death():
 	
 func touch_flag():
 	if get_parent().has_method("level_finished"):
+		get_parent().get_node("TheRoot").detach()
 		get_parent().level_finished(get_node(".").name)
