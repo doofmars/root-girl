@@ -9,6 +9,10 @@ var millis_elapsed = 0
 var deaths = 0
 
 const levels = [
+	"Tutorial1",
+	"Tutorial2",
+	"Tutorial3",
+	"Tutorial4",
 	"Plain", 
 	"Basketball",
 	"Spikes",

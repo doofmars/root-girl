@@ -341,6 +341,7 @@ points = PoolVector2Array( 19.8731, 12.2848, 15.5737, 16, 13.75, 16, 13.8125, 0,
 points = PoolVector2Array( 12.5206, 20.2427, 8.04209, 15.3099, 4.6021, 20.4374, 0, 14.3233, 0, 13.625, 16, 13.75, 16, 14.9776 )
 
 [resource]
+resource_local_to_scene = true
 5/name = "TwoSizeGrass"
 5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
