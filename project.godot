@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "RootHandle",
 "language": "GDScript",
-"path": "res://src/character/RootHandle.gd"
+"path": "res://src/objects/RootHandle.gd"
 }, {
 "base": "Node",
 "class": "TheRoot",
