@@ -3,7 +3,7 @@ Root Girl
 
 ![Image](assets/Splash%20Screen.png)
 
-[Play this game in your Browser](https://doofmars.github.io/root-boy-and-liana-girl/)
+[Play this game in your Browser](https://doofmars.github.io/root-girl/)
 
 A jump, swing and run plattformer written in [Godot Engine](https://godotengine.org/) (Version 3.5.1).
 
