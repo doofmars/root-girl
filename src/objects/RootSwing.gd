@@ -33,9 +33,14 @@ func _process(delta):
 		if !$RootGrowMusicPlayer.playing:
 			$RootGrowMusicPlayer.playing = true
 
+		if !Input.is_action_pressed("swing"):
+			detach_root()
+
 	if root_has_hit:
 		$RootSprite.look_at(root_target)
 		$RootSprite.region_rect.size.x = (root_handle.global_position - root_target).length()
+		if !Input.is_action_pressed("swing"):
+			detach_root()
 
 func _input(event):
 	if event is InputEventMouse:
